@@ -61,7 +61,8 @@ Laplace Transforms (System Modeling)
 
 Python (NumPy, SciPy, SymPy, Matplotlib)
 
-👤 Author
+**### 👤 Author**
+
 
 Sammeta Dinesh Kumar
 
