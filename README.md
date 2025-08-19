@@ -6,7 +6,10 @@ This project demonstrates **signal processing techniques** using **Fourier and L
 The focus is on **noise reduction, filtering, and frequency-domain analysis**, with applications in **biomedical signal processing** (e.g., ECG/EEG denoising).  
 
 ---
+Data Source:
+PhysioNet (MIT-BIH Arrhythmia Database)
 
+Source: https://physionet.org/content/mitdb/1.0.0/
 ## ⚙️ Features  
 - Generate and visualize **synthetic noisy signals**  
 - Apply **Fast Fourier Transform (FFT)** for frequency analysis  
