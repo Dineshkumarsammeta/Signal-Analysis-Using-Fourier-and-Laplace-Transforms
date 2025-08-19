@@ -1,0 +1,7 @@
+PhysioNet (MIT-BIH Arrhythmia Database)
+
+Source: https://physionet.org/content/mitdb/1.0.0/
+
+Citation to add in README:
+
+"This project uses sample ECG data from the MIT-BIH Arrhythmia Database, available via PhysioNet (Goldberger et al., 2000)."
