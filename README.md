@@ -1,2 +1,3 @@
 # Signal-Analysis-Using-Fourier-and-Laplace-Transforms
 Implemented Fourier and Laplace transforms in Python to analyze electrical/biomedical signals. Applied FFT for frequency-domain analysis, designed digital low-pass filters for noise reduction, and validated performance improvements through spectrum visualization. Project demonstrates DSP techniques relevant to biomedical signal processing (ECG/EEG)
+
