@@ -59,7 +59,6 @@ Signal-Analysis-Fourier-Laplace/
 - SymPy  
 
 Install dependencies:  
-```bash
 pip install numpy matplotlib scipy sympy
 
 📊 Results
@@ -81,7 +80,7 @@ Python (NumPy, SciPy, SymPy, Matplotlib)
 
 ---
 
-### 🔧 Requirements 
+### 🔧 contact 
 For questions, collaboration, or feedback, please contact:  
 **Sammeta Dinesh Kumar** — [sammetadineshkumar@gmail.com]
 - 🌐 [Portfolio](https://dineshsammeta1234.github.io/)  
