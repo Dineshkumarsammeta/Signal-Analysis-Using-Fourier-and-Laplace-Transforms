@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Signal Analysis - Fourier & Laplace</title>
+</head>
+<body>
+  <h1>🧠 Signal Analysis Using Fourier & Laplace Transforms</h1>
+
+  <form method="POST">
+    <h3>Symbolic Transforms</h3>
+    <input type="text" name="expression" placeholder="e.g., exp(-t)*sin(t)" style="width:300px">
+    <button type="submit">Compute</button>
+
+    <h3>Signal Processing</h3>
+    <select name="signal_type">
+      <option value="synthetic">Synthetic Noisy Signal</option>
+      <option value="noisy_ecg">ECG (from dataset)</option>
+    </select>
+    <button type="submit">Analyze</button>
+  </form>
+
+  {% if results.laplace %}
+    <h2>Laplace Transform:</h2>
+    <pre>{{ results.laplace }}</pre>
+  {% endif %}
+
+  {% if results.fourier %}
+    <h2>Fourier Transform:</h2>
+    <pre>{{ results.fourier }}</pre>
+  {% endif %}
+
+  {% if results.noisy_signal %}
+    <h2>Results</h2>
+    <img src="{{ results.noisy_signal }}" width="400"><br>
+    <img src="{{ results.spectrum }}" width="400"><br>
+    <img src="{{ results.filtered_signal }}" width="400"><br>
+  {% endif %}
+</body>
+</html>
