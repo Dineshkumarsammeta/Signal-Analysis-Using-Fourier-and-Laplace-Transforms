@@ -8,7 +8,7 @@ import os
 t, s, w = sp.symbols('t s w', real=True, positive=True)
 
 def symbolic_transforms(expr_str):
-    """Compute symbolic Laplace and Fourier transforms using SymPy"""
+    """Compute symbolic Laplace and Fourier transforms using SymPy """
     try:
         expr = sp.sympify(expr_str)
         laplace_expr = sp.laplace_transform(expr, t, s, noconds=True)
