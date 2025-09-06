@@ -1,3 +1,13 @@
+## ⚠️ Disclaimer
+
+This project was originally developed and tested in **2011**.  
+At that time, it ran successfully in the available Python libraries and environments.  
+
+Due to advancements and changes in library versions (e.g., `numpy`, `scipy`, `matplotlib`, etc.),  
+some parts of the code may not run exactly as intended in modern environments without modifications.  
+
+I have kept this repository public to **showcase my problem-solving, algorithmic approach, and project experience** to potential recruiters, particularly in the UK.  
+Please note that the focus here is on the **concepts and implementation methods**, rather than up-to-date compatibility.
 
 # 🧠 Signal Analysis Using Fourier and Laplace Transforms  
 
