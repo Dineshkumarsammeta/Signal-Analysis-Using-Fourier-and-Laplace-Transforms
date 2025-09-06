@@ -33,8 +33,11 @@ jobs:
       # Step 5: Create results directory
       - name: Create results folder
         run: mkdir -p static/results
+      # Step 6: Create results directory
+      - name: Run Python script
+        run: python test_run.py
 
-      # Step 6: Run the Python script
+      # Step 7: Run the Python script
       - name: Run signal processing script
         run: |
           python -c "
