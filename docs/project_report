@@ -1,0 +1,13 @@
+As part of an academic endeavour, this project was first created and tested in 2011 under the direction of Prof. Febin Dayal, Vellore Institute of Technology (VIT).
+
+At that time, the project worked well with the Python environments and libraries that were available.
+
+Owing to substantial changes and improvements in popular scientific libraries (such as NumPy, SciPy, and Matplotlib), some of the original code would need to be modified in order to function properly in contemporary development environments.
+
+The following objectives underpin the public domain maintenance of this repository:
+
+To illustrate methods of problem-solving,
+
+To illustrate the coding and computational approaches utilised,
+
+to provide documentation of study and project effort for use in professional, academic, and hiring assessments.
