@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path='../.env')
 
 SAMPLING_RATE = int(os.getenv("SAMPLING_RATE", 100))
-DATA_PATH = os.getenv("DATA_PATH", "../data/sample_signal.csv")
-RESULTS_PATH = os.getenv("RESULTS_PATH", "../results")
+DATA_PATH = os.getenv("DATA_PATH", "demo/data/sample_signal.csv")
+RESULTS_PATH = os.getenv("RESULTS_PATH", "demo/results")
 PLOTS_PATH = os.path.join(RESULTS_PATH, "plots")
 LOWPASS_CUTOFF = float(os.getenv("LOWPASS_CUTOFF", 2))
 FILTER_ORDER = int(os.getenv("FILTER_ORDER", 4))
