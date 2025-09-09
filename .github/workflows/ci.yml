@@ -1,4 +1,4 @@
-name: Python CI
+name: Signal Analysis Demo CI
 
 on:
   push:
@@ -7,51 +7,33 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  demo:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repo
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Step 2: Setup Python
-      - name: Set up Python 3.11
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # Step 3: Upgrade pip
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
-
-      # Step 4: Install dependencies
       - name: Install dependencies
         run: |
-          pip install numpy scipy matplotlib sympy pandas
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib scipy pandas python-dotenv
 
-      # Step 5: Create results directory
       - name: Create results folder
-        run: mkdir -p static/results
-      # Step 6: Create results directory
-      - name: Run Python script
-        run: python test_run.py
+        run: mkdir -p results/plots
 
-      # Step 7: Run the Python script
-      - name: Run signal processing script
-        run: |
-          python -c "
-import sys
-from pathlib import Path
-sys.path.insert(0, '.')
-from your_script_name import process_signal, symbolic_transforms
+      - name: Run demo script
+        run: python demo/demo_signal.py
 
-# Test symbolic transforms
-lap, four = symbolic_transforms('sin(t)')
-print('Laplace:', lap)
-print('Fourier:', four)
-
-# Test signal processing
-results = process_signal('synthetic')
-print('Generated files:', list(results.keys()))
-"
+      - name: Upload metrics and plots
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-artifacts
+          path: |
+            results/metrics.csv
+            results/plots/
