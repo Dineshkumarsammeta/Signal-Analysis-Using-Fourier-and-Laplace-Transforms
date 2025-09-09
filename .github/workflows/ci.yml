@@ -37,3 +37,5 @@ jobs:
           path: |
             results/metrics.csv
             results/plots/
+      - name: Run FFT smoke test
+        run: pytest tests/test_fft_pipeline.py
