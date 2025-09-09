@@ -1,4 +1,4 @@
-name: Signal Analysis Demo CI
+name: Signal Analysis CI
 
 on:
   push:
@@ -7,35 +7,49 @@ on:
     branches: [ main ]
 
 jobs:
-  demo:
+  fft-demo-ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      # Step 1: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      # Step 2: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy matplotlib scipy pandas python-dotenv
+          pip install -r requirements.txt
+          pip install pytest python-dotenv numpy scipy matplotlib
 
-      - name: Create results folder
-        run: mkdir -p results/plots
+      # Step 4: Create folders for results
+      - name: Create folders
+        run: mkdir -p results/plots data demo
 
-      - name: Run demo script
-        run: python demo/demo_signal.py
+      # Step 5: Copy demo sample CSV to data folder
+      - name: Prepare sample data
+        run: |
+          cp demo/sample_signal.csv data/sample_signal.csv || echo "Sample CSV already exists"
 
+      # Step 6: Run smoke test for FFT pipeline
+      - name: Run FFT smoke test
+        run: pytest tests/test_fft_pipeline.py
+
+      # Step 7: Run full demo
+      - name: Run demo
+        run: python demo/demo_signal_pipeline.py
+
+      # Step 8: Upload artifacts (metrics, plots)
       - name: Upload metrics and plots
         uses: actions/upload-artifact@v4
         with:
-          name: demo-artifacts
+          name: metrics-artifacts
           path: |
-            results/metrics.csv
+            results/
             results/plots/
-      - name: Run FFT smoke test
-        run: pytest tests/test_fft_pipeline.py
