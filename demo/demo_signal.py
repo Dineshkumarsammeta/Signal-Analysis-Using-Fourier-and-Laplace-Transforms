@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import butter, filtfilt
 from dotenv import load_dotenv
 
-# Load configuration
+# Load configuration 
 load_dotenv(dotenv_path='../.env')
 
 SAMPLING_RATE = int(os.getenv("SAMPLING_RATE", 100))
