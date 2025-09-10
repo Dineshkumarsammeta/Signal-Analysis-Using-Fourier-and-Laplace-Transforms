@@ -65,6 +65,17 @@ Signal-Analysis-Fourier-Laplace/
 
 
 ---
+## 🛠 Environment Strategy (Dual-Env)
+
+**Modern (2025)** – fully supported:
+
+```bash
+# Install modern environment
+python3.11 -m venv venv
+source venv/bin/activate
+pip install -e .[pipeline]
+
+---
 
 ## 🚀 Getting Started  
 
