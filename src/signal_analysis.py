@@ -75,3 +75,22 @@ def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_pat
     metrics.to_csv(metrics_file, index=False)
 
     return metrics_file
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Signal Analysis Demo")
+    parser.add_argument(
+        "--demo",
+        action="store_true",
+        help="Run the full demo: generate noisy signal, filter, save plots and metrics"
+    )
+    args = parser.parse_args()
+
+    if args.demo:
+        print("🔹 Running Signal Analysis Demo...")
+        time, clean, noisy = generate_noisy_signal()
+        filtered = apply_lowpass_filter(noisy, cutoff=2.0, sampling_rate=100)
+        metrics_csv = save_signal_metrics(time, clean, noisy, filtered, sampling_rate=100)
+        print(f"✅ Demo finished. Metrics saved at {metrics_csv}")
+
