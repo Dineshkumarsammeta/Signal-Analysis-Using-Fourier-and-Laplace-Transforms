@@ -1,6 +1,6 @@
 
 
-# 🧠 Signal Analysis Using Fourier and Laplace Transforms  
+# Signal Analysis Using Fourier and Laplace Transforms  
 
 ## 📌 Overview  
 This project demonstrates **signal processing techniques** using **Fourier and Laplace transforms** in Python.  
