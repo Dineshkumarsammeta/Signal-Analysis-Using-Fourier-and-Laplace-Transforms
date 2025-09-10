@@ -24,25 +24,19 @@
 
 ---
 
-## 3) Day 1 — Checklist (Do now)
+## 3) Checklist
 - [ ] Add `pyproject.toml` with modern pins (Python 3.11; `numpy`, `scipy`, `matplotlib`, `sympy`)  
 - [ ] Add `tests/test_smoke.py` (imports + quick FFT sanity)  
 - [ ] Add CI workflow `.github/workflows/ci.yml` that installs and runs `pytest`  
 - [ ] Commit `data/bench.csv` (synthetic) and `reports/metrics_v0_1.csv` (SNR/PSNR; FFT runtime)  
 - [ ] Update `README.md` (3‑command quick start + modernisation note)  
 - [ ] Start `CHANGELOG.md` with **v0.1.0**
-
-**Acceptance criteria (Day 1):**  
-✅ `pip install -e .` works • ✅ `pytest -q` passes • ✅ demo script generates 3 plots (noisy/spectrum/filtered) • ✅ metrics CSV present • ✅ README quick‑start is copy‑ready
-
----
-
-## 4) Day 2 — Checklist (Polish)
 - [ ] Export three PNGs to `visualisation/` (noisy, spectrum, filtered)  
 - [ ] Seed 6–8 GitHub Issues (Roadmap items below)  
 - [ ] Create first release/tag: **v0.1.0 + release notes**
 
-**Acceptance criteria (Day 2):**  
+**Acceptance criteria :**  
+✅ `pip install -e .` works • ✅ `pytest -q` passes • ✅ demo script generates 3 plots (noisy/spectrum/filtered) • ✅ metrics CSV present • ✅ README quick‑start is copy‑ready
 ✅ Three PNGs exist • ✅ Issues seeded • ✅ First release tagged with short notes
 
 ---
