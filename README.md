@@ -1,3 +1,16 @@
+
+
+# 🧠 Signal Analysis Using Fourier and Laplace Transforms  
+
+## 📌 Overview  
+This project demonstrates **signal processing techniques** using **Fourier and Laplace transforms** in Python.  
+The focus is on **noise reduction, filtering, and frequency-domain analysis**, with applications in **biomedical signal processing** (e.g., ECG/EEG denoising).  
+
+## 📅 Project Timeline
+**Duration:** Feb 2011 – Mar 2011 
+**Acadamic Year** Second Year - Electrical and Electronics Engineering
+**Location:** VIT University, Vellore, India  
+
 ## ⚠️ Disclaimer
 
 This project was originally developed and tested in **2011**.  
@@ -9,15 +22,6 @@ some parts of the code may not run exactly as intended in modern environments wi
 I have kept this repository public to **showcase my problem-solving, algorithmic approach, and project experience** to potential recruiters, particularly in the UK.  
 Please note that the focus here is on the **concepts and implementation methods**, rather than up-to-date compatibility.
 
-# 🧠 Signal Analysis Using Fourier and Laplace Transforms  
-
-## 📌 Overview  
-This project demonstrates **signal processing techniques** using **Fourier and Laplace transforms** in Python.  
-The focus is on **noise reduction, filtering, and frequency-domain analysis**, with applications in **biomedical signal processing** (e.g., ECG/EEG denoising).  
-
-## 📅 Project Timeline
-**Duration:** Feb 2011 – Mar 2011  
-**Location:** VIT University, Vellore, India  
 **Modules Used:** 
 
 
