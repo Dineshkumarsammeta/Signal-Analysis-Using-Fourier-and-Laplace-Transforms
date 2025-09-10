@@ -78,6 +78,24 @@ Signal-Analysis-Fourier-Laplace/
 Install dependencies:  
 pip install numpy matplotlib scipy sympy
 
+
+---
+
+## ⚡ Quick Start — Run in 3 Commands
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/your-username/Signal-Analysis-Fourier-Laplace.git
+cd Signal-Analysis-Fourier-Laplace
+
+# 2️⃣ Install dependencies
+pip install -r requirements.txt
+
+# 3️⃣ Run the analysis script
+python src/signal_analysis.py
+
+---
+
 📊 Results
 Noisy Signal (Time Domain)
 
