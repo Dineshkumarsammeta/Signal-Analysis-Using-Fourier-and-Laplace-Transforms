@@ -14,7 +14,7 @@ DATA_PATH = os.getenv("DATA_PATH", "data/sample_signal.csv")
 RESULTS_PATH = os.getenv("RESULTS_PATH", "results")
 PLOTS_PATH = os.path.join(RESULTS_PATH, "plots")
 LOWPASS_CUTOFF = float(os.getenv("LOWPASS_CUTOFF", 2.0))
-FILTER_ORDER = int(os.getenv("FILTER_ORDER", 4))  # ✅ FIX: now defined
+FILTER_ORDER = int(os.getenv("FILTER_ORDER", 4))
 
 os.makedirs(PLOTS_PATH, exist_ok=True)
 
@@ -38,16 +38,41 @@ if len(signal) > FILTER_ORDER * 2:
 else:
     filtered_signal = noisy_signal
 
-# Save plots
+# --- Save plots separately for README ---
+
+# 1. Noisy signal
 plt.figure(figsize=(8, 4))
 plt.plot(time, noisy_signal, label="Noisy Signal")
-plt.plot(time, filtered_signal, label="Filtered Signal", color="green")
-plt.legend()
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.title("Demo Signal Processing")
+plt.title("Noisy Signal (Input Data)")
+plt.legend()
 plt.tight_layout()
-plt.savefig(os.path.join(PLOTS_PATH, "demo_pipeline.png"))
+plt.savefig(os.path.join(PLOTS_PATH, "noisy_signal.png"))
+plt.close()
+
+# 2. Filtered signal
+plt.figure(figsize=(8, 4))
+plt.plot(time, filtered_signal, label="Filtered Signal", color="green")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude")
+plt.title("Filtered Signal (After Low-pass Filter)")
+plt.legend()
+plt.tight_layout()
+plt.savefig(os.path.join(PLOTS_PATH, "filtered_signal.png"))
+plt.close()
+
+# 3. FFT Spectrum
+fft_vals = np.fft.fft(filtered_signal)
+fft_freq = np.fft.fftfreq(len(filtered_signal), 1 / SAMPLING_RATE)
+
+plt.figure(figsize=(8, 4))
+plt.plot(fft_freq[:len(fft_freq)//2], np.abs(fft_vals)[:len(fft_vals)//2])
+plt.xlabel("Frequency (Hz)")
+plt.ylabel("Magnitude")
+plt.title("Frequency Spectrum")
+plt.tight_layout()
+plt.savefig(os.path.join(PLOTS_PATH, "spectrum.png"))
 plt.close()
 
 print("✅ Demo pipeline finished. Plots saved in results/plots/")
