@@ -109,7 +109,7 @@ Python (NumPy, SciPy, SymPy, Matplotlib)
 
 ## 📊 Repository Health
 
-This project is under continuous improvement. An Audit Report has been created to track repository health and enhancements.
+This project is under continuous improvement. An [Audit report](docs/repo_audit.md) has been created to track repository health and enhancements.
 
 ### Key Focus Areas
 - **Releases & Versioning:** To be added — future releases will follow semantic versioning for clarity and reproducibility.  
