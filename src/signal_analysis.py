@@ -1,8 +1,33 @@
+import numpy as np
+from scipy.signal import butter, filtfilt
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+# -----------------------------
+# Core reusable functions
+# -----------------------------
+
+def generate_noisy_signal(frequency=5, t=None, noise_std=0.5):
+    """Generate a sine wave with added Gaussian noise."""
+    if t is None:
+        t = np.linspace(0, 1, 500)
+    clean = np.sin(2 * np.pi * frequency * t)
+    noisy = clean + np.random.normal(0, noise_std, size=clean.shape)
+    return t, clean, noisy
+
+def apply_lowpass_filter(signal, cutoff, sampling_rate, order=4):
+    """Apply Butterworth low-pass filter to a signal."""
+    nyq = 0.5 * sampling_rate
+    b, a = butter(order, cutoff / nyq, btype="low")
+    filtered = filtfilt(b, a, signal)
+    return filtered
+
 def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_path="results"):
-    import os, pandas as pd, matplotlib.pyplot as plt
+    """Save plots and metrics (SNR, PSNR) to files."""
     os.makedirs(os.path.join(results_path, "plots"), exist_ok=True)
 
-    # 1. Noisy signal
+    # Noisy signal plot
     plt.figure()
     plt.plot(time, noisy)
     plt.title("Noisy Signal")
@@ -11,7 +36,7 @@ def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_pat
     plt.savefig(os.path.join(results_path, "plots/noisy_signal.png"))
     plt.close()
 
-    # 2. Filtered signal
+    # Filtered signal plot
     plt.figure()
     plt.plot(time, filtered)
     plt.title("Filtered Signal")
@@ -20,7 +45,7 @@ def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_pat
     plt.savefig(os.path.join(results_path, "plots/filtered_signal.png"))
     plt.close()
 
-    # 3. FFT spectrum
+    # FFT spectrum plot
     fft_vals = np.fft.fft(filtered)
     fft_freq = np.fft.fftfreq(len(filtered), 1/sampling_rate)
     plt.figure()
@@ -31,7 +56,7 @@ def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_pat
     plt.savefig(os.path.join(results_path, "plots/spectrum.png"))
     plt.close()
 
-    # 4. Compute metrics
+    # Compute metrics
     def snr(signal, noise):
         return 10*np.log10(np.sum(signal**2)/np.sum(noise**2))
     def psnr(original, processed):
@@ -49,5 +74,4 @@ def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_pat
     metrics_file = os.path.join(results_path, "metrics_v0_1.csv")
     metrics.to_csv(metrics_file, index=False)
 
-    print(f"✅ Saved plots and metrics to {results_path}")
     return metrics_file
