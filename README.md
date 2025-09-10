@@ -164,13 +164,13 @@ Python (NumPy, SciPy, SymPy, Matplotlib)
 ## 📊 Signal Denoising — Before vs After
 
 **Noisy Signal (input data)**  
-![Noisy Signal](visualisation/noisy_signal.png)
+![Noisy Signal](results/noisy_signal.png)
 
 **Filtered Signal (after low-pass filter)**  
-![Filtered Signal](visualisation/filtered_signal.png)
+![Filtered Signal](results/filtered_signal.png)
 
 **Frequency Spectrum (FFT analysis)**  
-![Spectrum](visualisation/spectrum.png)
+![Spectrum](results/spectrum.png)
 
 ## 📊 Repository Health
 
