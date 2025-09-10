@@ -1,0 +1,6 @@
+# Legacy environment (for reference only)
+python==2.7           # or early 3.x era
+numpy==1.6.*
+scipy==0.10.*
+matplotlib==1.1.*
+sympy==0.7.*
