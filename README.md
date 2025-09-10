@@ -17,7 +17,44 @@ The focus is on **noise reduction, filtering, and frequency-domain analysis**, w
 ## ⚠️ Disclaimer
 
 This project was originally developed and tested in **2011**.  
-At that time, it ran successfully in the available Python libraries and environments.  
+At that time, it ran successfully in the available Python libraries and environments. 
+
+**⚡ Modernization (v0.1.0 Release)**
+
+This repository has been lightly modernized to run on current Python environments (Python 3.11) while preserving the original algorithmic logic from 2011. Key updates include:
+
+Environment pins: Updated core dependencies for modern Python versions:
+
+numpy==2.0.*, scipy==1.13.*, matplotlib==3.9.*, sympy==1.13.*
+
+Dual environment strategy: Legacy 2011 environment pinned in environment-2011.txt for transparency.
+
+Demo CLI: Run the pipeline with:
+
+python -m src.signal_analysis --demo
+
+
+Generates synthetic noisy signals, filtered outputs, FFT spectrum, and metrics CSV (SNR/PSNR).
+
+CI/CD integration:
+
+pytest smoke tests ensure plots and CSV metrics are generated.
+
+GitHub Actions workflow validates the pipeline automatically on every push/pull request.
+
+Metrics and plots are uploaded as workflow artifacts for review.
+
+Project structure refactored:
+
+Reusable code centralized in src/signal_analysis.py
+
+Demo and tests separated for maintainability
+
+results/plots/ folder stores before/after plots and frequency spectrum
+
+Release notes v0.1.0:
+
+First modernization release demonstrating that the pipeline runs in a lean, modern environment while producing reproducible artefacts.
 
 Due to advancements and changes in library versions (e.g., `numpy`, `scipy`, `matplotlib`, etc.),  
 some parts of the code may not run exactly as intended in modern environments without modifications.  
