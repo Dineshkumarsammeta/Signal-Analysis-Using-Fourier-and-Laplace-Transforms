@@ -7,9 +7,12 @@ This project demonstrates **signal processing techniques** using **Fourier and L
 The focus is on **noise reduction, filtering, and frequency-domain analysis**, with applications in **biomedical signal processing** (e.g., ECG/EEG denoising).  
 
 ## 📅 Project Timeline
-**Duration:** Feb 2011 – Mar 2011 
-**Acadamic Year** Second Year - Electrical and Electronics Engineering
-**Location:** VIT University, Vellore, India  
+
+- **Duration:** Feb 2011 – Mar 2011 
+
+- **Acadamic Year** Second Year - Electrical and Electronics Engineering
+  
+- **Location:** VIT University, Vellore, India  
 
 ## ⚠️ Disclaimer
 
@@ -103,6 +106,16 @@ Python (NumPy, SciPy, SymPy, Matplotlib)
 
 **Frequency Spectrum (FFT analysis)**  
 ![Spectrum](results/plots/spectrum.png)
+
+## 📊 Repository Health
+
+This project is under continuous improvement. An Audit Report has been created to track repository health and enhancements.
+
+### Key Focus Areas
+- **Releases & Versioning:** To be added — future releases will follow semantic versioning for clarity and reproducibility.  
+- **Expanded Test Coverage:** Planned integration with `pytest` to validate FFT, filtering, and Laplace transform outputs.  
+- **Metrics / Artifacts Integration:** Export of CSV and PNG results in CI workflows to ensure reproducibility and easy visualization of outputs.
+
 
 ### 🔧 contact 
 For questions, collaboration, or feedback, please contact:  
