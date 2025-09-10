@@ -57,5 +57,10 @@ jobs:
           path: |
             results/
             results/plots/
+      - name: Run demo via CLI
+        run: python -m src.signal_analysis --demo
+        env:
+            PYTHONPATH: ${{ github.workspace }}
+
     
 
