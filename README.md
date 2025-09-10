@@ -106,7 +106,7 @@ Signal-Analysis-Fourier-Laplace/
 
 **Modern (2025)** – fully supported:
 
-bash
+
 # Install modern environment
 python3.11 -m venv venv
 source venv/bin/activate
@@ -130,7 +130,7 @@ pip install numpy matplotlib scipy sympy
 
 ## ⚡ Quick Start — Run in 3 Commands
 
-```bash
+
 # 1️⃣ Clone the repository
 git clone https://github.com/your-username/Signal-Analysis-Fourier-Laplace.git
 cd Signal-Analysis-Fourier-Laplace
@@ -164,13 +164,13 @@ Python (NumPy, SciPy, SymPy, Matplotlib)
 ## 📊 Signal Denoising — Before vs After
 
 **Noisy Signal (input data)**  
-![Noisy Signal](results/plots/noisy_signal.png)
+![Noisy Signal](visualisation/noisy_signal.png)
 
 **Filtered Signal (after low-pass filter)**  
-![Filtered Signal](results/plots/filtered_signal.png)
+![Filtered Signal](visualisation/filtered_signal.png)
 
 **Frequency Spectrum (FFT analysis)**  
-![Spectrum](results/plots/spectrum.png)
+![Spectrum](visualisation/spectrum.png)
 
 ## 📊 Repository Health
 
