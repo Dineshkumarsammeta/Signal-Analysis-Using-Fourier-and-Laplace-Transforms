@@ -89,6 +89,16 @@ Laplace Transforms (System Modeling)
 Python (NumPy, SciPy, SymPy, Matplotlib)
 
 ---
+## 📊 Signal Denoising — Before vs After
+
+**Noisy Signal (input data)**  
+![Noisy Signal](results/plots/noisy_signal.png)
+
+**Filtered Signal (after low-pass filter)**  
+![Filtered Signal](results/plots/filtered_signal.png)
+
+**Frequency Spectrum (FFT analysis)**  
+![Spectrum](results/plots/spectrum.png)
 
 ### 🔧 contact 
 For questions, collaboration, or feedback, please contact:  
