@@ -7,7 +7,7 @@ name = "signal-analysis-fourier-laplace"
 version = "0.1.0"
 description = "Signal Analysis Using Fourier and Laplace Transforms - Synthetic Demo"
 authors = [
-    { name="Sammeta Dinesh Kumar", email="sammetadineshkumar@gmail.com" }
+    { name = "Sammeta Dinesh Kumar", email = "sammetadineshkumar@gmail.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.8"
@@ -16,9 +16,10 @@ requires-python = ">=3.8"
 numpy = "==1.25.0"
 scipy = "==1.12.0"
 matplotlib = "==3.8.0"
-sympy = "==1.12"
+sympy = "==1.12.0"
 pandas = "==2.1.1"
 pytest = "==7.4.2"
+python-dotenv = "==1.0.1"  # For loading .env configuration
 
 [tool.black]
 line-length = 88
