@@ -1,88 +1,53 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import butter, filtfilt
-import sympy as sp
-import pandas as pd
-import os
+def save_signal_metrics(time, clean, noisy, filtered, sampling_rate, results_path="results"):
+    import os, pandas as pd, matplotlib.pyplot as plt
+    os.makedirs(os.path.join(results_path, "plots"), exist_ok=True)
 
-t, s, w = sp.symbols('t s w', real=True, positive=True)
-
-def symbolic_transforms(expr_str):
-    """Compute symbolic Laplace and Fourier transforms using SymPy """
-    try:
-        expr = sp.sympify(expr_str)
-        laplace_expr = sp.laplace_transform(expr, t, s, noconds=True)
-        fourier_expr = sp.fourier_transform(expr, t, w)
-        return str(laplace_expr), str(fourier_expr)
-    except Exception as e:
-        return f"Error: {e}", f"Error: {e}"
-
-
-def butter_lowpass(cutoff, fs, order=5):
-    nyq = 0.5 * fs
-    normal_cutoff = cutoff / nyq
-    b, a = butter(order, normal_cutoff, btype='low', analog=False)
-    return b, a
-
-
-def process_signal(signal_type="synthetic", results_dir="static/results"):
-    """Generate noisy signal, apply FFT & filtering, save plots."""
-    fs = 500  # sampling frequency
-    t = np.linspace(0, 1.0, fs)
-    results = {}
-
-    if signal_type == "synthetic":
-        # Create noisy signal
-        clean = np.sin(2 * np.pi * 5 * t)  # 5 Hz sine wave
-        noise = 0.5 * np.random.randn(len(t))
-        signal = clean + noise
-
-    elif signal_type == "noisy_ecg":
-        # Load ECG sample if available
-        try:
-            data = pd.read_csv("data/ecg_sample.csv")
-            signal = data.values.flatten()[:fs]
-        except:
-            # fallback synthetic ECG-like signal
-            signal = np.sin(2 * np.pi * 1 * t) + 0.2 * np.random.randn(len(t))
-
-    else:
-        return {}
-
-    # FFT
-    spectrum = np.fft.fft(signal)
-    freqs = np.fft.fftfreq(len(signal), 1/fs)
-
-    # Low-pass filter
-    cutoff = 30.0  # Hz
-    b, a = butter_lowpass(cutoff, fs)
-    filtered = filtfilt(b, a, signal)
-
-    # Plot noisy signal
-    noisy_path = os.path.join(results_dir, "noisy_signal.png")
+    # 1. Noisy signal
     plt.figure()
-    plt.plot(t, signal)
+    plt.plot(time, noisy)
     plt.title("Noisy Signal")
-    plt.savefig(noisy_path)
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.savefig(os.path.join(results_path, "plots/noisy_signal.png"))
     plt.close()
-    results["noisy_signal"] = noisy_path
 
-    # Plot spectrum
-    spec_path = os.path.join(results_dir, "spectrum.png")
+    # 2. Filtered signal
     plt.figure()
-    plt.plot(freqs[:len(freqs)//2], np.abs(spectrum)[:len(freqs)//2])
-    plt.title("Frequency Spectrum (FFT)")
-    plt.savefig(spec_path)
+    plt.plot(time, filtered)
+    plt.title("Filtered Signal")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude")
+    plt.savefig(os.path.join(results_path, "plots/filtered_signal.png"))
     plt.close()
-    results["spectrum"] = spec_path
 
-    # Plot filtered signal
-    filt_path = os.path.join(results_dir, "filtered_signal.png")
+    # 3. FFT spectrum
+    fft_vals = np.fft.fft(filtered)
+    fft_freq = np.fft.fftfreq(len(filtered), 1/sampling_rate)
     plt.figure()
-    plt.plot(t, filtered, label="Filtered")
-    plt.title("Filtered Signal (Butterworth)")
-    plt.savefig(filt_path)
+    plt.plot(fft_freq[:len(fft_freq)//2], np.abs(fft_vals)[:len(fft_vals)//2])
+    plt.title("FFT Spectrum")
+    plt.xlabel("Frequency (Hz)")
+    plt.ylabel("Magnitude")
+    plt.savefig(os.path.join(results_path, "plots/spectrum.png"))
     plt.close()
-    results["filtered_signal"] = filt_path
 
-    return results
+    # 4. Compute metrics
+    def snr(signal, noise):
+        return 10*np.log10(np.sum(signal**2)/np.sum(noise**2))
+    def psnr(original, processed):
+        mse = ((original-processed)**2).mean()
+        return 10*np.log10(np.max(original)**2/mse)
+
+    noisy_snr = snr(clean, noisy-clean)
+    filtered_snr = snr(clean, filtered-clean)
+    filtered_psnr = psnr(clean, filtered)
+
+    metrics = pd.DataFrame({
+        "Metric":["Noisy_SNR","Filtered_SNR","Filtered_PSNR"],
+        "Value":[noisy_snr, filtered_snr, filtered_psnr]
+    })
+    metrics_file = os.path.join(results_path, "metrics_v0_1.csv")
+    metrics.to_csv(metrics_file, index=False)
+
+    print(f"✅ Saved plots and metrics to {results_path}")
+    return metrics_file
