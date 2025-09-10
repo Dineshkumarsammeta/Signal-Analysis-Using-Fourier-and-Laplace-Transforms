@@ -40,10 +40,14 @@ jobs:
       # Step 6: Run smoke test for FFT pipeline
       - name: Run FFT smoke test
         run: pytest tests/test_fft_pipeline.py
+        env:
+            PYTHONPATH: ${{ github.workspace }}
 
       # Step 7: Run full demo
       - name: Run demo
         run: python demo/demo_signal_pipeline.py
+        env:
+            PYTHONPATH: ${{ github.workspace }}
 
       # Step 8: Upload artifacts (metrics, plots)
       - name: Upload metrics and plots
