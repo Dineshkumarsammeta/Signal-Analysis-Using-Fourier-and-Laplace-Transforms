@@ -8,8 +8,21 @@ import os
 # Core reusable functions
 # -----------------------------
 
-def generate_noisy_signal(frequency=5, t=None, noise_std=0.5):
-    """Generate a sine wave with added Gaussian noise."""
+def generate_noisy_signal(frequency=5, t=None, noise_std=0.5, input_file=None):
+    """
+    Generate a signal with noise.
+    - If input_file is provided, read 'time' and 'signal' columns from CSV.
+    - Otherwise, generate synthetic sine wave.
+    """
+    if input_file:
+        import pandas as pd
+        df = pd.read_csv(input_file)
+        t = df["time"].values
+        clean = df["signal"].values
+        noisy = clean + np.random.normal(0, noise_std, size=clean.shape)
+        return t, clean, noisy
+
+    # Synthetic sine wave
     if t is None:
         t = np.linspace(0, 1, 500)
     clean = np.sin(2 * np.pi * frequency * t)
@@ -85,12 +98,18 @@ if __name__ == "__main__":
         action="store_true",
         help="Run the full demo: generate noisy signal, filter, save plots and metrics"
     )
+    parser.add_argument(
+        "--input-file",
+        type=str,
+        help="data/ecg_sample.csv"
+    )
     args = parser.parse_args()
 
     if args.demo:
         print("🔹 Running Signal Analysis Demo...")
-        time, clean, noisy = generate_noisy_signal()
+        time, clean, noisy = generate_noisy_signal(input_file=args.input_file)
         filtered = apply_lowpass_filter(noisy, cutoff=2.0, sampling_rate=100)
         metrics_csv = save_signal_metrics(time, clean, noisy, filtered, sampling_rate=100)
         print(f"✅ Demo finished. Metrics saved at {metrics_csv}")
+
 
