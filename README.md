@@ -126,7 +126,6 @@ pip install -e .[pipeline]
 Install dependencies:  
 pip install numpy matplotlib scipy sympy
 
-
 ---
 
 ## ⚡ Quick Start — Run in 3 Commands
