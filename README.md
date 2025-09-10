@@ -106,7 +106,7 @@ Signal-Analysis-Fourier-Laplace/
 
 **Modern (2025)** – fully supported:
 
-```bash
+bash
 # Install modern environment
 python3.11 -m venv venv
 source venv/bin/activate
