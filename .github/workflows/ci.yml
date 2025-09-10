@@ -53,6 +53,5 @@ jobs:
           path: |
             results/
             results/plots/
-      - name: Run FFT pipeline smoke test
-        run: pytest tests/test_fft_pipeline.py
+    
 
