@@ -23,3 +23,17 @@ def test_fft_smoke():
     # ✅ Assertions for smoke test
     assert len(fft_vals) == len(filtered_signal)
     assert np.isfinite(fft_vals).all()
+    
+import subprocess
+
+def test_artifacts_generated():
+    subprocess.run(["python", "demo/demo_signal_pipeline.py"], check=True)
+    files = [
+        "results/plots/noisy_signal.png",
+        "results/plots/filtered_signal.png",
+        "results/plots/spectrum.png",
+        "results/metrics_v0_1.csv"
+    ]
+    for f in files:
+        assert os.path.exists(f), f"Missing expected artifact: {f}"
+
