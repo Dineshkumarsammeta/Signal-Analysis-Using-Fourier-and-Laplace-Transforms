@@ -29,9 +29,11 @@ jobs:
           pip install pytest python-dotenv numpy scipy matplotlib
 
       # Step 4: Clean and create folders for results
-      - name: Create folders
+      - name: Clean and create folders
         run: |
-          mkdir -p results/plots data demo
+          rm -rf results data
+          mkdir -p results/plots data
+
 
       # Step 5: Copy demo sample CSV to data folder
       - name: Prepare sample data
