@@ -127,6 +127,27 @@ Install dependencies:
 pip install numpy matplotlib scipy sympy
 
 ---
+---
+
+## 🌐 Run the UI (Flask Frontend)
+
+This project also includes a minimal **Flask app (app.py)** to visualize results interactively.
+
+### ▶️ Run the Flask App
+```bash
+python app.py
+```
+
+🩺 Health Check
+
+Verify the app is running with:
+
+curl http://127.0.0.1:5000/health
+
+
+Expected response:
+
+"status": "ok"
 
 ## ⚡ Quick Start — Run in 3 Commands
 
