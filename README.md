@@ -12,7 +12,7 @@ The focus is on **noise reduction, filtering, and frequency-domain analysis**, w
 
 - **Academic Year** Second Year - Electrical and Electronics Engineering
   
-- **Location:** VIT University, Vellore, India  
+- **Location:** VIT University, Vellore,India  
 
 ## ⚠️ Disclaimer
 
