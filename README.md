@@ -8,7 +8,7 @@ The focus is on **noise reduction, filtering, and frequency-domain analysis**, w
 
 ## 📅 Project Timeline
 
-- **Duration:** Feb 2011 – Mar 2011 
+- **Duration:** Feb 2011 – Mar 2011  
 
 - **Academic Year** Second Year - Electrical and Electronics Engineering
   
