@@ -10,7 +10,7 @@ The focus is on **noise reduction, filtering, and frequency-domain analysis**, w
 
 - **Duration:** Feb 2011 – Mar 2011 
 
-- **Acadamic Year** Second Year - Electrical and Electronics Engineering
+- **Academic Year** Second Year - Electrical and Electronics Engineering
   
 - **Location:** VIT University, Vellore, India  
 
@@ -132,7 +132,7 @@ pip install numpy matplotlib scipy sympy
 
 
 # 1️⃣ Clone the repository
-git clone https://github.com/your-username/Signal-Analysis-Fourier-Laplace.git
+git clone https://github.com/Dineshkumarsammeta/Signal-Analysis-Fourier-Laplace.git
 cd Signal-Analysis-Fourier-Laplace
 
 # 2️⃣ Install dependencies
