@@ -98,16 +98,15 @@ This project uses **ECG/EEG signals** from **PhysioNet** for demonstration purpo
 ---
 
 ## 📂 Project Structure
-Signal-Analysis-Fourier-Laplace/
-│── data/
-│ └── ecg_sample.csv # (optional ECG data)
-│── src/
-│ └── signal_analysis.py # main Python script
-│── results/
-│ ├── noisy_signal.png
-│ ├── spectrum.png
-│ ├── filtered_signal.png
-│── README.md
+Signal-Analysis-Using-Fourier-and-Laplace-Transforms/
+├── data/ # Input data files
+├── demo/ # Demo scripts and sample data
+├── docs/ # Documentation files
+├── results/ # Output results (plots, metrics)
+├── src/ # Source code for signal analysis
+├── templates/ # Template files for reports or outputs
+├── tests/ # Unit and integration tests
+└── .env.template # Environment variable template
 
 
 ---
@@ -158,20 +157,25 @@ Expected response:
 
 "status": "ok"
 
-## ⚡ Quick Start — Run in 3 Commands
 
+## ⚡ Quick Start
 
-# 1️⃣ Clone the repository
-git clone https://github.com/Dineshkumarsammeta/Signal-Analysis-Fourier-Laplace.git
-cd Signal-Analysis-Fourier-Laplace
+1. Clone the repository:
 
-# 2️⃣ Install dependencies
+   ```bash
+   git clone https://github.com/Dineshkumarsammeta/Signal-Analysis-Using-Fourier-and-Laplace-Transforms.git
+   cd Signal-Analysis-Using-Fourier-and-Laplace-Transforms
+   ```
+2.nstall dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+3.Run the analysis script:
 
-# 3️⃣ Run the analysis script
+```bash
 python src/signal_analysis.py
-
----
+```
 
 📊 Results
 Noisy Signal (Time Domain)
