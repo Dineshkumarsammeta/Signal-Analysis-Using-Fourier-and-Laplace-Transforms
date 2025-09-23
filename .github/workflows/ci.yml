@@ -31,7 +31,6 @@ jobs:
       # Step 4: Clean and create folders for results
       - name: Create folders
         run: |
-          rm -rf results data demo
           mkdir -p results/plots data demo
 
       # Step 5: Copy demo sample CSV to data folder
