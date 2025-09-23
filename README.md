@@ -74,10 +74,18 @@ Please note that the focus here is on the **concepts and implementation methods*
 | **Data Structures and Algorithms**                       | Efficient implementation of FFT, filtering algorithms, and data handling in Python.                                       |
 
 ---
-Data Source:
-PhysioNet (MIT-BIH Arrhythmia Database)
+## 📂 Data & Attribution
 
-Source: https://physionet.org/content/mitdb/1.0.0/
+This project uses **ECG/EEG signals** from **PhysioNet** for demonstration purposes. All example files included in this repository are **synthetic signals or tiny excerpts** of the original dataset.
+
+- Original datasets:
+  - Moody GB & Mark RG. The impact of the MIT-BIH Arrhythmia Database. *IEEE Computers in Cardiology*, 2001.
+  - Goldberger AL et al. PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. *Circulation*, 2000.
+
+- PhysioNet License: [Open Database License (ODC-By 1.0)](https://physionet.org/about/terms-of-use/)
+
+- Full dataset page: [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/)
+
 
 ## ⚙️ Features  
 - Generate and visualize **synthetic noisy signals**  
