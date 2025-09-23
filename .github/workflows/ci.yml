@@ -28,9 +28,11 @@ jobs:
           pip install -r requirements.txt
           pip install pytest python-dotenv numpy scipy matplotlib
 
-      # Step 4: Create folders for results
+      # Step 4: Clean and create folders for results
       - name: Create folders
-        run: mkdir -p results/plots data demo
+        run: |
+          rm -rf results data demo
+          mkdir -p results/plots data demo
 
       # Step 5: Copy demo sample CSV to data folder
       - name: Prepare sample data
@@ -41,13 +43,13 @@ jobs:
       - name: Run FFT smoke test
         run: pytest tests/test_fft_pipeline.py
         env:
-            PYTHONPATH: ${{ github.workspace }}
+          PYTHONPATH: ${{ github.workspace }}
 
       # Step 7: Run full demo
       - name: Run demo
         run: python demo/demo_signal_pipeline.py
         env:
-            PYTHONPATH: ${{ github.workspace }}
+          PYTHONPATH: ${{ github.workspace }}
 
       # Step 8: Upload artifacts (metrics, plots)
       - name: Upload metrics and plots
@@ -57,10 +59,9 @@ jobs:
           path: |
             results/
             results/plots/
+
+      # Step 9: Run demo via CLI
       - name: Run demo via CLI
         run: python -m src.signal_analysis --demo
         env:
-            PYTHONPATH: ${{ github.workspace }}
-
-    
-
+          PYTHONPATH: ${{ github.workspace }}
