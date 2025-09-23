@@ -37,11 +37,18 @@ jobs:
       # Step 5: Copy demo sample CSV to data folder
       - name: Prepare sample data
         run: |
+         mkdir -p data
           if [ ! -f data/sample_signal.csv ]; then
+          if [ -f demo/sample_signal.csv ]; then
            cp demo/sample_signal.csv data/sample_signal.csv
+          else
+           echo "ERROR: demo/sample_signal.csv not found!"
+          exit 1
+          fi
           else
            echo "Sample CSV already exists"
           fi
+
 
 
       # Step 6: Run smoke test for FFT pipeline
