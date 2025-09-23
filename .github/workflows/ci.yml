@@ -37,7 +37,12 @@ jobs:
       # Step 5: Copy demo sample CSV to data folder
       - name: Prepare sample data
         run: |
-          cp demo/sample_signal.csv data/sample_signal.csv || echo "Sample CSV already exists"
+          if [ ! -f data/sample_signal.csv ]; then
+           cp demo/sample_signal.csv data/sample_signal.csv
+          else
+           echo "Sample CSV already exists"
+          fi
+
 
       # Step 6: Run smoke test for FFT pipeline
       - name: Run FFT smoke test
