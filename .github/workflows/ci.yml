@@ -37,14 +37,10 @@ jobs:
       # Step 5: Copy demo sample CSV to data folder
       - name: Prepare sample data
         run: |
-          mkdir -p data
-          if [ -f demo/sample_signal.csv ]; then
-           cp demo/sample_signal.csv data/sample_signal.csv
-           echo "Sample CSV copied successfully."
-          else
-           echo "ERROR: demo/sample_signal.csv not found!"
-           exit 1
-          fi
+         mkdir -p data
+         cp demo/sample_signal.csv data/sample_signal.csv
+         echo "Sample CSV copied successfully."
+
 
 
 
