@@ -98,15 +98,17 @@ This project uses **ECG/EEG signals** from **PhysioNet** for demonstration purpo
 ---
 
 ## 📂 Project Structure
+
 Signal-Analysis-Using-Fourier-and-Laplace-Transforms/
-├── data/ # Input data files
-├── demo/ # Demo scripts and sample data
-├── docs/ # Documentation files
-├── results/ # Output results (plots, metrics)
-├── src/ # Source code for signal analysis
-├── templates/ # Template files for reports or outputs
-├── tests/ # Unit and integration tests
-└── .env.template # Environment variable template
+├── data/          # Input data files
+├── demo/          # Demo scripts and sample data
+├── docs/          # Documentation files
+├── results/       # Output results (plots, metrics)
+├── src/           # Source code for signal analysis
+├── templates/     # Template files for reports or outputs
+├── tests/         # Unit and integration tests
+└── .env.template  # Environment variable template
+
 
 
 ---
