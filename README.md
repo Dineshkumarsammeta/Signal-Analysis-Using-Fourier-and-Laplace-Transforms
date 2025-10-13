@@ -1,5 +1,3 @@
-
-
 # Signal Analysis Using Fourier and Laplace Transforms  
 
 ## 📌 Overview  
@@ -9,7 +7,7 @@ The focus is on **noise reduction, filtering, and frequency-domain analysis**, w
 
 ## 📅 Project Timeline
 
-- **Duration:** 25 Feb 2011 – 28 Mar 2011  (Part Time)
+- **Duration:** 25 Feb 2011 – 28 Mar 2011  (Part - Time)
 
 - **Academic Year** Second Year - Electrical and Electronics Engineering
   
